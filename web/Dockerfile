@@ -1,5 +1,5 @@
-#FROM    Обратите внимание, что python:2.7-stretch более недоступен, используйте python:3.6
-#USER
+FROM python:3.6
+USER root
 # uWSGI:
 RUN pip install uwsgi
 # Copy the base uWSGI ini file to enable default dynamic uwsgi process number
@@ -72,4 +72,4 @@ ARG WORK_DIR=/var/www
 RUN usermod -u 1000 www-data
 WORKDIR ${WORK_DIR}
 CMD [ "uwsgi" ]
-#PORT
+EXPOSE 9000
